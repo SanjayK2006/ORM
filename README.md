@@ -1,5 +1,5 @@
 # Ex02 Django ORM Web Application
-## Date: 1-10-2024
+## Date: 18-11-2024
 
 ## AIM
 To develop a Django application to store and retrieve data from a bank loan database using Object Relational Mapping(ORM).
@@ -51,10 +51,8 @@ class Loan(models.Model):
 
 
 ## OUTPUT
+![orm](https://github.com/user-attachments/assets/e1392601-48db-402b-9a19-1d5f5fc2d966)
 
-![Screenshot (193)](https://github.com/user-attachments/assets/fd308ad4-500c-469e-b43a-db3b81699114)
-![Screenshot (194)](https://github.com/user-attachments/assets/f09ab2b7-9fda-4790-99c5-b1db4ba46488)
-![Screenshot (197)](https://github.com/user-attachments/assets/86fc118a-504d-447a-aca6-a922173b295d)
 
 
 
