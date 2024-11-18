@@ -19,7 +19,7 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
-
+```
 Admin.py
 
 from django.contrib import admin
@@ -45,9 +45,9 @@ class Loan(models.Model):
     duration_months = models.PositiveIntegerField()
     start_date = models.DateField()
 
-    def _str_(self):
+    def __str__(self):
         return f"Loan ID: {self.loan_id} - {self.customer_name}"
-
+```
 
 
 ## OUTPUT
