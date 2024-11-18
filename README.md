@@ -1,8 +1,8 @@
-# Ex 02 Django ORM Web Application
-## DATE: 04-09-24
+# Ex02 Django ORM Web Application
+## Date: 1-10-2024
 
 ## AIM
-To develop a Django application to store and retrieve data from a Football Players database using Object Relational Mapping(ORM).
+To develop a Django application to store and retrieve data from a bank loan database using Object Relational Mapping(ORM).
 
 ## DESIGN STEPS
 
@@ -16,37 +16,46 @@ Create a new app in Django project
 Enter the code for admin.py and models.py
 
 ### STEP 4:
-Execute Django admin and create 10 Football players
+Execute Django admin and create details for 10 books
 
 ## PROGRAM
-
-```py
-Models.py
-
-from django.db import models
-from django.contrib import admin
-class Players(models.Model):
-    jrsy=models.CharField(max_length=20,help_text="Player Jrsy")
-    name=models.CharField(max_length=100)
-    cntry=models.CharField(max_length=100)
-    age=models.IntegerField()
-    height=models.IntegerField()
-
-class EmployeeAdmin(admin.ModelAdmin):
-    list_display=('jrsy','name','cntry','age','height')
-
 
 Admin.py
 
 from django.contrib import admin
-from .models import Players,EmployeeAdmin
-admin.site.register(Players,EmployeeAdmin)
-```
+from .models import Loan
+
+@admin.register(Loan)
+class LoanAdmin(admin.ModelAdmin):
+    list_display = ('loan_id', 'customer_name', 'amount', 'interest_rate', 'duration_months', 'start_date')
+    search_fields = ('customer_name', 'loan_id')
+
+Models.py
+
+from django.db import models
+
+class Loan(models.Model):
+    loan_id = models.AutoField(primary_key=True)  # Auto incrementing primary key
+    customer_name = models.CharField(max_length=100)
+    address = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=15)
+    email = models.EmailField()
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    interest_rate = models.FloatField()
+    duration_months = models.PositiveIntegerField()
+    start_date = models.DateField()
+
+    def _str_(self):
+        return f"Loan ID: {self.loan_id} - {self.customer_name}"
+
+
 
 ## OUTPUT
 
-![image](https://github.com/rahulramakrishnann/Exp-2-ORM--web/assets/143045415/b2e404af-f088-492e-b606-6ebffece8f02)
-![image](https://github.com/rahulramakrishnann/Exp-2-ORM--web/assets/143045415/94c3d887-112e-4b9b-b83a-7365148fb61f)
+![Screenshot (193)](https://github.com/user-attachments/assets/fd308ad4-500c-469e-b43a-db3b81699114)
+![Screenshot (194)](https://github.com/user-attachments/assets/f09ab2b7-9fda-4790-99c5-b1db4ba46488)
+![Screenshot (197)](https://github.com/user-attachments/assets/86fc118a-504d-447a-aca6-a922173b295d)
+
 
 
 ## RESULT
